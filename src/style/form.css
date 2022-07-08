@@ -1,0 +1,97 @@
+.main-form-container {
+  background-color: white;
+  margin: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-title-form {
+  display: flex;
+  align-items: center;
+}
+
+.main-title-form span {
+  margin: 8px 16px 0 16px;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.main-input-field {
+  padding: 16px 16px 0px 16px;
+}
+
+.input-field,
+.main-select-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.input-field span,
+.main-select-container span {
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.input-field input,
+.main-select-container select {
+  border: 1px solid #5dffd4;
+  height: 48px;
+  padding-left: 16px;
+}
+
+.loading-span {
+  text-align: center;
+  font-size: 24px;
+  color: red;
+}
+
+.input-field input::placeholder {
+  color: red;
+  text-align: center;
+}
+
+.input-field input:focus {
+  outline: none;
+  border: 1px solid #06d6a0;
+  transition: 0.5s;
+}
+
+.main-button-container {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+}
+
+.main-button-container button {
+  margin-bottom: 8px;
+  border: none;
+  height: 48px;
+  background-color: #06d6a0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+}
+
+.main-button-container button:active {
+  background-color: white;
+  border: 1px solid #06d6a0;
+}
+
+.error {
+  border: 1px solid red !important;
+  padding-left: 0 !important;
+}
+
+.select-error {
+  padding-left: 16px;
+}
+
+.API-error-box {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 16px 0 16px;
+  color: red;
+  font-weight: 300;
+  text-align: center;
+}
