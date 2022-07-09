@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USER_API_BASE_URL = "http://localhost:8080/spentmanager/user";
+const USER_API_BASE_URL = "https://spent-manager-spring-app.herokuapp.com/spentmanager/user";
 
 class UserService {
   getUsersInPeriodSpentInProgress() {
