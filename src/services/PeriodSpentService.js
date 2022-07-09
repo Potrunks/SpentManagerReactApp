@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const PERIOD_SPENT_API_BASE_URL =
-  "http://localhost:8080/spentmanager/periodspent";
+  "https://spent-manager-spring-app.herokuapp.com/spentmanager/periodspent";
 
 class PeriodSpentService {
   postNewPeriodSpent(idUserConnected, salary) {

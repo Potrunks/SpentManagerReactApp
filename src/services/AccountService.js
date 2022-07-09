@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ACCOUNT_API_BASE_URL = "http://localhost:8080/spentmanager/account";
+const ACCOUNT_API_BASE_URL = "https://spent-manager-spring-app.herokuapp.com/spentmanager/account";
 
 class AccountService {
   postNewUser(user) {
