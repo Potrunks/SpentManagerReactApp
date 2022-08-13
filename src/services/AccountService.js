@@ -1,16 +1,17 @@
 import axios from "axios";
+import SettingService from "./SettingService";
 
-const ACCOUNT_API_BASE_URL = "https://spent-manager-spring-app.herokuapp.com/spentmanager/account";
+const ACCOUNT_API_BASE_URL = "/account";
 
 class AccountService {
   postNewUser(user) {
     console.log("Post new user to the API app in order to create new account");
-    return axios.post(ACCOUNT_API_BASE_URL + "/new", user);
+    return axios.post(SettingService.API_URL_BASE() + ACCOUNT_API_BASE_URL + "/new", user);
   }
 
   postUserForLogIn(user) {
     console.log("Post user at API app to attempt to authenticate");
-    return axios.post(ACCOUNT_API_BASE_URL + "/connect", user);
+    return axios.post(SettingService.API_URL_BASE() + ACCOUNT_API_BASE_URL + "/connect", user);
   }
 }
 

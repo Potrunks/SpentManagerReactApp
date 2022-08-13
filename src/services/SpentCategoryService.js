@@ -1,12 +1,13 @@
 import axios from "axios";
+import SettingService from "./SettingService";
 
 const SPENT_CATEGORY_API_BASE_URL =
-  "https://spent-manager-spring-app.herokuapp.com/spentmanager/spentcategory";
+  "/spentcategory";
 
 class SpentCategoryService {
   getAllSpentCategories() {
     console.log("Send request to API to get all spent categories");
-    return axios.get(SPENT_CATEGORY_API_BASE_URL + "/getall");
+    return axios.get(SettingService.API_URL_BASE() + SPENT_CATEGORY_API_BASE_URL + "/getall");
   }
 }
 
