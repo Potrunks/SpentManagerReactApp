@@ -41,7 +41,7 @@ const Menu = () => {
               </button>
             </div>
           )}
-          <button>*Mes dépenses mensuelles*</button>
+          <button onClick={() => navigate("/MyMonthlySpent")}>Dépenses mensuelles</button>
           <button onClick={() => navigate("/")}>Se deconnecter</button>
         </div>
       </div>

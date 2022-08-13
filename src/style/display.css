@@ -14,7 +14,7 @@
   height: 48px;
 }
 
-.users-display-main-container, .spending-period-btn-main-container, .spents-main-container {
+.users-display-main-container, .main-btn-command, .spending-period-btn-main-container, .spents-main-container {
   background-color: white;
   margin: 16px 16px 0 16px;
   border-radius: 4px;
@@ -25,6 +25,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.big-title {
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .main-title-display span {
@@ -68,11 +73,11 @@
     margin: 8px 16px 8px 16px;
 }
 
-.spending-period-btn-main-container {
+.spending-period-btn-main-container, .main-btn-command {
   padding: 16px;
 }
 
-.user-btn-command button, .spending-period-btn-main-container button, .spent-card-btn-command button {
+.user-btn-command button, .main-btn-command button, .spending-period-btn-main-container button, .spent-card-btn-command button {
   border: none;
   width: 100%;
   height: 48px;
@@ -80,11 +85,11 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.user-btn-command button:active, .spending-period-btn-main-container button:active, .spent-card-btn-command button:active {
+.user-btn-command button:active, .main-btn-command button:active, .spending-period-btn-main-container button:active, .spent-card-btn-command button:active {
   background-color: white;
   border: 1px solid #06d6a0;
 }
 
-.spending-period-btn-main-container button:nth-child(1), .spending-period-btn-main-container button:nth-child(2), .spent-card-btn-command button:nth-child(1) {
+.spending-period-btn-main-container button:nth-child(1), .main-btn-command button:nth-child(1), .spending-period-btn-main-container button:nth-child(2), .spent-card-btn-command button:nth-child(1) {
   margin-bottom: 8px;
 }
