@@ -3,7 +3,7 @@ import React from 'react'
 const MainTitleList = ({titleToDisplay}) => {
 
   return (
-    <div className="main-title-display">
+    <div className="main-title-list">
         <span>{titleToDisplay}</span>
       </div>
   )

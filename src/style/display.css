@@ -14,17 +14,27 @@
   height: 48px;
 }
 
-.users-display-main-container, .main-btn-command, .spending-period-btn-main-container, .spents-main-container {
+.users-display-main-container,
+.main-btn-command,
+.spending-period-btn-main-container,
+.spents-main-container,
+.item-list-main-container {
   background-color: white;
   margin: 16px 16px 0 16px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.main-title-display {
+.main-title-display, .main-title-list {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main-title-list {
+  margin-top: 8px;
+  font-weight: 300;
+  font-size: 20px;
 }
 
 .big-title {
@@ -38,20 +48,26 @@
   font-size: 24px;
 }
 
-.user-display-card, .spents-card-container {
+.user-display-card,
+.spents-card-container,
+.item-card-container {
   display: flex;
   flex-direction: column;
   border: #06d6a0 solid 2px;
   margin: 8px;
 }
 
-.user-name, .spent-card-title span {
+.user-name,
+.spent-card-title span,
+.item-card-title span {
   font-weight: 300;
   font-size: 24px;
   margin-left: 16px;
 }
 
-.user-period-spent-info, .spent-card-info {
+.user-period-spent-info,
+.spent-card-info,
+.item-card-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,25 +75,43 @@
   margin-top: 8px;
 }
 
-.user-period-spent-info span, .spent-card-info span {
+.user-period-spent-info span,
+.spent-card-info span,
+.item-card-info span {
   font-weight: 300;
   font-size: 20px;
   text-align: center;
 }
 
-.spent-card-info .spent-comment {
+.spent-card-info .spent-comment,
+.item-card-info .comment {
   font-size: 16px;
 }
 
-.user-btn-command, .spent-card-btn-command {
-    margin: 8px 16px 8px 16px;
+.state {
+  display: flex;
 }
 
-.spending-period-btn-main-container, .main-btn-command {
+.state img {
+  height: 48px;
+}
+
+.user-btn-command,
+.spent-card-btn-command,
+.item-card-btn-command {
+  margin: 8px 16px 8px 16px;
+}
+
+.spending-period-btn-main-container,
+.main-btn-command {
   padding: 16px;
 }
 
-.user-btn-command button, .main-btn-command button, .spending-period-btn-main-container button, .spent-card-btn-command button {
+.user-btn-command button,
+.main-btn-command button,
+.spending-period-btn-main-container button,
+.spent-card-btn-command button,
+.item-card-btn-command button {
   border: none;
   width: 100%;
   height: 48px;
@@ -85,11 +119,20 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.user-btn-command button:active, .main-btn-command button:active, .spending-period-btn-main-container button:active, .spent-card-btn-command button:active {
+.user-btn-command button:active,
+.main-btn-command button:active,
+.spending-period-btn-main-container button:active,
+.spent-card-btn-command button:active,
+.item-card-btn-command button:active {
   background-color: white;
   border: 1px solid #06d6a0;
 }
 
-.spending-period-btn-main-container button:nth-child(1), .main-btn-command button:nth-child(1), .spending-period-btn-main-container button:nth-child(2), .spent-card-btn-command button:nth-child(1) {
+.spending-period-btn-main-container button:nth-child(1),
+.main-btn-command button:nth-child(1),
+.spending-period-btn-main-container button:nth-child(2),
+.spent-card-btn-command button:nth-child(1),
+.item-card-btn-command button:nth-child(1),
+.item-card-btn-command button:nth-child(2) {
   margin-bottom: 8px;
 }

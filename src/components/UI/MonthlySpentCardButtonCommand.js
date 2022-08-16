@@ -1,18 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 const MonthlySpentCardButtonCommand = ({monthlySpent}) => {
 
-    const navigate = useNavigate();
-
   return (
-    <div className="monthly-spent-card-btn-command">
-      <button onClick={() => navigate(`/modifyMonthlySpent/${monthlySpent.idMonthlySpent}`)}>
-        Modifier
-      </button>
-      <button onClick={() => navigate(`/deleteMonthlySpent/${monthlySpent.idMonthlySpent}`)}>
-        Supprimer
-      </button>
+    <div className="item-card-btn-command">
+      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"transform"} />
+      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"modify"} />
+      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"delete"} />
     </div>
   );
 };
