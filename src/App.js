@@ -19,6 +19,7 @@ import SpendingPeriodByID from "./components/display/SpendingPeriodByID";
 import DeleteSpentConfirm from "./components/page/DeleteSpentConfirm";
 import ModifySalary from "./components/form/ModifySalary";
 import MonthlySpentManager from "./components/display/MonthlySpentManager";
+import NewMonthlySpent from "./components/form/NewMonthlySpent";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/deleteSpent/:idSpentToDelete" element={<DeleteSpentConfirm />} />
           <Route path="/modifySalary/:idSalaryToModify" element={<ModifySalary />} />
           <Route path="/MyMonthlySpent" element={<MonthlySpentManager />} />
+          <Route path="/monthlySpent/new" element={<NewMonthlySpent />} />
         </Routes>
       </BrowserRouter>
     </>

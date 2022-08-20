@@ -7,7 +7,7 @@ const MainButtonCommand = ({addButton, backButton, mode}) => {
 
   return (
     <div className='main-btn-command'>
-        {addButton && <button>*Ajouter*</button>}
+        {addButton && <button onClick={() => navigate("/monthlySpent/new")} >Créer</button>}
         {backButton && <button onClick={() => navigate("/menu")}>Retour</button>}
     </div>
   )
