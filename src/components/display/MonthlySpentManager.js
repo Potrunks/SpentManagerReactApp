@@ -31,7 +31,6 @@ const MonthlySpentManager = () => {
             await MonthlySpentService.fetchAllByUser(userConnected);
           setMonthlySpentList(responseFetchAllMonthlySpent.data);
           console.log("data fetch successfully");
-          console.log(responseFetchAllMonthlySpent.data);
           setLoading(false);
         } catch (error) {
           console.log(error);

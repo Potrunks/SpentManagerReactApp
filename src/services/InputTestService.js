@@ -3,6 +3,7 @@ const regexNameFormat = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexPasswordFormat =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 const regexFullWhiteSpace = /.*\S.*/;
+
 class InputTestService {
   resetAllError() {
     document.getElementById("adminPassword").classList.remove("error");
@@ -63,6 +64,14 @@ class InputTestService {
       return false;
     }
     return true;
+  }
+
+  resetNewMonthlySpentFormError() {
+    // TODO Reset error from form
+  }
+
+  verifyIntegrityNewMonthlySpent(monthlySpent) {
+    // TODO verify integrity new monthly spent
   }
 
   verifyIntegrityUserChoice(idUserExpenser) {
