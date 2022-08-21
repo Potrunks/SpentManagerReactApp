@@ -45,7 +45,7 @@ function App() {
           <Route path="/modifySpent/:idSpent" element={<ModifySpent />} />
           <Route path="/deleteSpent/:idSpentToDelete" element={<DeleteSpentConfirm />} />
           <Route path="/modifySalary/:idSalaryToModify" element={<ModifySalary />} />
-          <Route path="/MyMonthlySpent" element={<MonthlySpentManager />} />
+          <Route path="/monthlySpent/getAllByIdUser" element={<MonthlySpentManager />} />
           <Route path="/monthlySpent/new" element={<NewMonthlySpent />} />
         </Routes>
       </BrowserRouter>

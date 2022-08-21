@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../page/Loading";
-import Button from "../UI/Button";
+import MainFormButtonCommand from "../UI/MainFormButtonCommand";
 
 const NewMonthlySpent = () => {
   const [monthlySpent, setMonthlySpent] = useState({
@@ -54,11 +54,13 @@ const NewMonthlySpent = () => {
       {loading && <Loading />}
       {!loading && (
         <div className="main-form-container">
-          <div className="main-button-container">
-            <Button iditem={null} item={null} method={displayConfirmPopup} mode={"create"} />
-            <Button iditem={null} item={null} method={clearInput} mode={"clearInputField"} />
-            <Button iditem={null} item={null} method={null} mode={"MyMonthlySpent"} />
-          </div>
+          <MainFormButtonCommand
+            backButton={true}
+            addButtonAttachMethod={displayConfirmPopup}
+            clearFieldsButton={true}
+            clearFieldsButtonAttachMethod={clearInput}
+            addButton={true}
+          />
         </div>
       )}
     </div>

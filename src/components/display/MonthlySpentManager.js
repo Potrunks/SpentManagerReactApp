@@ -48,7 +48,7 @@ const MonthlySpentManager = () => {
         <MainButtonCommand
           addButton={true}
           backButton={true}
-          mode={"MonthlySpent"}
+          item={"monthlySpent"}
         />
       )}
       {!loading && (

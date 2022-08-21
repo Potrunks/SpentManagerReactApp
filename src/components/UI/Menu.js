@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PeriodSpentService from "../../services/PeriodSpentService";
+import Button from "./Button";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Menu = () => {
               </button>
             </div>
           )}
-          <button onClick={() => navigate("/MyMonthlySpent")}>Dépenses mensuelles</button>
+          <Button iditem={null} item={"monthlySpent"} method={null} mode={"getAllByIdUser"} />
           <button onClick={() => navigate("/")}>Se deconnecter</button>
         </div>
       </div>
