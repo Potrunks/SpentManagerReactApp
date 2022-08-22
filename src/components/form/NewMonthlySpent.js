@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../page/Loading";
 import MainFormButtonCommand from "../UI/MainFormButtonCommand";
+import MainTitleDisplay from "../UI/MainTitleDisplay";
 
 const NewMonthlySpent = () => {
   const [monthlySpent, setMonthlySpent] = useState({
@@ -54,6 +55,7 @@ const NewMonthlySpent = () => {
       {loading && <Loading />}
       {!loading && (
         <div className="main-form-container">
+          <MainTitleDisplay mode={"form"} titleToDisplay={"Ajouter Dépense Mensuelle"} />
           <MainFormButtonCommand
             backButton={true}
             addButtonAttachMethod={displayConfirmPopup}

@@ -43,7 +43,7 @@ const MonthlySpentManager = () => {
   return (
     <div className="app-main-container">
       {loading && <Loading />}
-      {!loading && <MainTitleDisplay titleToDisplay={"Dépenses Mensuelles"} />}
+      {!loading && <MainTitleDisplay titleToDisplay={"Dépenses Mensuelles"} mode={"main"} />}
       {!loading && (
         <MainButtonCommand
           addButton={true}

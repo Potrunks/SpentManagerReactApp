@@ -1,13 +1,13 @@
 import React from "react";
-import MainTitleList from "./MainTitleList";
 import MonthlySpentCardButtonCommand from "./MonthlySpentCardButtonCommand";
 import activePicture from "./active.png";
 import inactivePicture from "./inactive.png";
+import MainTitleDisplay from "./MainTitleDisplay";
 
 const MonthlySpentList = ({ monthlySpentList, titleToDisplay }) => {
   return (
     <div className="item-list-main-container">
-      <MainTitleList titleToDisplay={titleToDisplay} />
+      <MainTitleDisplay titleToDisplay={"Mes Dépenses Mensuelles"} mode={"list"} />
       {monthlySpentList.map((monthlySpent) => (
         <div key={monthlySpent.idMonthlySpent} className="item-card-container">
       <div className="item-card">
