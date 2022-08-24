@@ -17,7 +17,8 @@ const NewSpent = () => {
   });
   const [loading, setLoading] = useState(true);
   const [spentCategories, setSpentCategories] = useState(null);
-  const confirmMessage = "Etes-vous sur de vouloir ajouter une nouvelle dépense ?";
+  const confirmMessage =
+    "Etes-vous sur de vouloir ajouter une nouvelle dépense ?";
   const [confirmPopup, setConfirmPopup] = useState(false);
   const [users, setUsers] = useState(null);
 
@@ -167,10 +168,7 @@ const NewSpent = () => {
               >
                 <option value="">Choisissez un utilisateur...</option>
                 {users.map((user) => (
-                  <option
-                    key={user.idUser}
-                    value={user.idUser}
-                  >
+                  <option key={user.idUser} value={user.idUser}>
                     {user.firstNameUser}
                   </option>
                 ))}

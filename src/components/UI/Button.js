@@ -14,7 +14,7 @@ const Button = ({ item, iditem, mode, method }) => {
         </button>
       )}
 
-      {mode === "create" && <button onClick={method}>Ajouter</button>}
+      {mode === "create" && <button onClick={(e) => method(e)}>Ajouter</button>}
       {mode === "clearInputField" && (
         <button onClick={method}>Effacer les champs</button>
       )}
@@ -25,7 +25,7 @@ const Button = ({ item, iditem, mode, method }) => {
           {item === "monthlySpent" &&
             mode === "getAllByIdUser" &&
             "Mes dépenses mensuelles"}
-            {item === "monthlySpent" &&
+          {item === "monthlySpent" &&
             mode === "new" &&
             "Créer dépense mensuelle"}
         </button>

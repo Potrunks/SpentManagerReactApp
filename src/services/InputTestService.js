@@ -47,18 +47,19 @@ class InputTestService {
     document
       .getElementById("idSpentCategorySelected")
       .classList.remove("select-error");
-      document.getElementById(
-        "idSpentCategorySelected"
-      ).firstChild.textContent = "Choisissez une catégorie...";
+    document.getElementById("idSpentCategorySelected").firstChild.textContent =
+      "Choisissez une catégorie...";
     document.getElementById("API-error-box").style.display = "none";
   }
 
   verifyIntegrityNewSpent(spent) {
     this.resetNewSpentFormError();
     if (
-      this.verifyIntegrityValueSpent(spent.valueSpent) === false ||
-      this.verifyIntegrityNameSpent(spent.nameSpent) === false ||
-      this.verifyIntegritySpentCategory(spent.idSpentCategorySelected) === false ||
+      this.verifyIntegrityValueSpent(spent.valueSpent, "valueSpent") ===
+        false ||
+      this.verifyIntegrityNameSpent(spent.nameSpent, "nameSpent") === false ||
+      this.verifyIntegritySpentCategory(spent.idSpentCategorySelected) ===
+        false ||
       this.verifyIntegrityUserChoice(spent.idUserExpenser) === false
     ) {
       return false;
@@ -67,11 +68,41 @@ class InputTestService {
   }
 
   resetNewMonthlySpentFormError() {
-    // TODO Reset error from form
+    document.getElementById("commentMonthlySpent").classList.remove("error");
+    document.getElementById("commentMonthlySpent").placeholder = "";
+    document.getElementById("valueMonthlySpent").classList.remove("error");
+    document.getElementById("valueMonthlySpent").placeholder = "";
+    document.getElementById("nameMonthlySpent").classList.remove("error");
+    document.getElementById("nameMonthlySpent").placeholder = "";
+    document
+      .getElementById("idSpentCategorySelected")
+      .classList.remove("error");
+    document
+      .getElementById("idSpentCategorySelected")
+      .classList.remove("select-error");
+    document.getElementById("idSpentCategorySelected").firstChild.textContent =
+      "Choisissez une catégorie...";
+    document.getElementById("API-error-box").style.display = "none";
   }
 
   verifyIntegrityNewMonthlySpent(monthlySpent) {
-    // TODO verify integrity new monthly spent
+    this.resetNewMonthlySpentFormError();
+    if (
+      this.verifyIntegrityValueSpent(
+        monthlySpent.valueMonthlySpent,
+        "valueMonthlySpent"
+      ) === false ||
+      this.verifyIntegrityNameSpent(
+        monthlySpent.nameMonthlySpent,
+        "nameMonthlySpent"
+      ) === false ||
+      this.verifyIntegritySpentCategory(
+        monthlySpent.idSpentCategorySelected
+      ) === false
+    ) {
+      return false;
+    }
+    return true;
   }
 
   verifyIntegrityUserChoice(idUserExpenser) {
@@ -82,14 +113,11 @@ class InputTestService {
   }
 
   idUserExpenserIsSelected(idUserExpenser) {
-    if(idUserExpenser === "") {
+    if (idUserExpenser === "") {
       document.getElementById("idUserExpenser").classList.add("error");
-      document
-        .getElementById("idUserExpenser")
-        .classList.add("select-error");
-      document.getElementById(
-        "idUserExpenser"
-      ).firstChild.textContent = "Selection obligatoire";
+      document.getElementById("idUserExpenser").classList.add("select-error");
+      document.getElementById("idUserExpenser").firstChild.textContent =
+        "Selection obligatoire";
       return false;
     }
     return true;
@@ -116,57 +144,59 @@ class InputTestService {
     return true;
   }
 
-  verifyIntegrityNameSpent(name) {
+  verifyIntegrityNameSpent(name, property) {
     if (
-      (this.nameSpentIsEmpty(name) || this.nameSpentIsOnlySpace(name)) === true
+      (this.nameSpentIsEmpty(name, property) ||
+        this.nameSpentIsOnlySpace(name, property)) === true
     ) {
       return false;
     }
     return true;
   }
 
-  nameSpentIsEmpty(name) {
+  nameSpentIsEmpty(name, property) {
     if (name.length === 0) {
-      document.getElementById("nameSpent").classList.add("error");
-      document.getElementById("nameSpent").placeholder = "Champ requis";
+      document.getElementById(property).classList.add("error");
+      document.getElementById(property).placeholder = "Champ requis";
       return true;
     }
     return false;
   }
 
-  nameSpentIsOnlySpace(name) {
+  nameSpentIsOnlySpace(name, property) {
     if (!regexFullWhiteSpace.test(name)) {
-      document.getElementById("nameSpent").value = "";
-      document.getElementById("nameSpent").classList.add("error");
-      document.getElementById("nameSpent").placeholder = "Format nom invalide";
+      document.getElementById(property).value = "";
+      document.getElementById(property).classList.add("error");
+      document.getElementById(property).placeholder = "Format nom invalide";
       return true;
     }
     return false;
   }
 
-  verifyIntegrityValueSpent(value) {
+  verifyIntegrityValueSpent(value, property) {
     if (
-      (this.valueSpentIsEmpty(value) || this.valueSpentIsZero(value)) === true
+      (this.valueSpentIsEmpty(value, property) ||
+        this.valueSpentIsZero(value, property)) === true
     ) {
       return false;
     }
     return true;
   }
 
-  valueSpentIsEmpty(value) {
+  valueSpentIsEmpty(value, property) {
     if (value.length === 0) {
-      document.getElementById("valueSpent").classList.add("error");
-      document.getElementById("valueSpent").placeholder = "Champ requis";
+      document.getElementById(property).classList.add("error");
+      document.getElementById(property).placeholder = "Champ requis";
       return true;
     }
     return false;
   }
 
-  valueSpentIsZero(value) {
+  valueSpentIsZero(value, property) {
     if (value === "0") {
-      document.getElementById("valueSpent").value = "";
-      document.getElementById("valueSpent").classList.add("error");
-      document.getElementById("valueSpent").placeholder = "Valeur peut pas être 0";
+      document.getElementById(property).value = "";
+      document.getElementById(property).classList.add("error");
+      document.getElementById(property).placeholder = "Valeur peut pas être 0";
       return true;
     }
     return false;
