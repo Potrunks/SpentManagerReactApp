@@ -1,17 +1,18 @@
 import axios from "axios";
+import SettingService from "./SettingService";
 
-const SALARY_API_BASE_URL = "https://spent-manager-spring-app.herokuapp.com/spentmanager/salary";
+const SALARY_API_BASE_URL = "/salary";
 
 class SalaryService {
 
     getSalaryByID(idSalary) {
         console.log("Send salary id " + idSalary + " request to the API");
-        return axios.get(SALARY_API_BASE_URL + "/get/" + idSalary);
+        return axios.get(SettingService.API_URL_BASE() + SALARY_API_BASE_URL + "/get/" + idSalary);
     }
 
     updateSalary(idUserConnected, salary) {
         console.log("Send salary id " + salary.idSalary + " request to the API");
-        return axios.put(SALARY_API_BASE_URL + "/update/" + idUserConnected, salary);
+        return axios.put(SettingService.API_URL_BASE() + SALARY_API_BASE_URL + "/update/" + idUserConnected, salary);
     }
 }
 
