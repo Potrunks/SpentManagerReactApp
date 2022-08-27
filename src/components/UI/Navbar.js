@@ -11,7 +11,7 @@ const Navbar = () => {
     if (sessionStorage.getItem("firstNameUserConnected") !== null) {
       setNavbarText("Bienvenue " + sessionStorage.getItem("firstNameUserConnected"));
     } else {
-      setNavbarText("Spent Manager v1.0.0");
+      setNavbarText("Spent Manager v1.1.0");
     }
     setLoading(false);
   }, []);
