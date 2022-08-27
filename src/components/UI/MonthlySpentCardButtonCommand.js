@@ -5,9 +5,9 @@ const MonthlySpentCardButtonCommand = ({monthlySpent}) => {
 
   return (
     <div className="item-card-btn-command">
-      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"transform"} />
-      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"modify"} />
-      <Button item={"MonthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"delete"} />
+      <Button method={null} item={"monthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"transform"} />
+      <Button method={null} item={"monthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"modify"} />
+      <Button method={null} item={"monthlySpent"} iditem={monthlySpent.idMonthlySpent} mode={"delete"} />
     </div>
   );
 };

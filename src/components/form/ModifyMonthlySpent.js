@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Loading from "../page/Loading";
-import ErrorMessage from "../UI/ErrorMessage";
-import MainFormButtonCommand from "../UI/MainFormButtonCommand";
-import MainTitleDisplay from "../UI/MainTitleDisplay";
-import Field from "../UI/Field";
-import Confirm from "../Popup/Confirm";
-import SpentCategoryService from "../../services/SpentCategoryService";
-import InputTestService from "../../services/InputTestService";
+import { useParams, useNavigate } from "react-router-dom";
 import MonthlySpentService from "../../services/MonthlySpentService";
+import InputTestService from "../../services/InputTestService";
+import SpentCategoryService from "../../services/SpentCategoryService";
+import Loading from "../page/Loading";
+import MainTitleDisplay from "../UI/MainTitleDisplay";
+import ErrorMessage from "../UI/ErrorMessage";
+import Field from "../UI/Field";
+import MainFormButtonCommand from "../UI/MainFormButtonCommand";
+import Confirm from "../Popup/Confirm";
 
-const NewMonthlySpent = () => {
+const ModifyMonthlySpent = () => {
+  const { iditem } = useParams();
   const [monthlySpent, setMonthlySpent] = useState({
+    idMonthlySpent: iditem,
     valueMonthlySpent: "",
     nameMonthlySpent: "",
     commentMonthlySpent: "",
@@ -25,7 +27,6 @@ const NewMonthlySpent = () => {
     "Etes-vous sur de vouloir créer cette dépense mensuelle ?";
   const [confirmPopup, setConfirmPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -47,24 +48,6 @@ const NewMonthlySpent = () => {
     }
   };
 
-  const sendNewMonthlySpentToApi = (e) => {
-    setConfirmPopup(false);
-    console.log("Start to post a new monthly spent for the API");
-    MonthlySpentService.newMonthlySpent(monthlySpent)
-      .then((response) => {
-        if (response.data.error !== undefined) {
-          setErrorMessage(response.data.error);
-          document.getElementById("API-error-box").style.display = "flex";
-        } else {
-          console.log("New monthly spent successfully sent to the API");
-          navigate("/success");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   const clearInput = (e) => {
     e.preventDefault();
     setMonthlySpent({
@@ -83,8 +66,13 @@ const NewMonthlySpent = () => {
       console.log("Start loading...");
       const fetchData = async () => {
         try {
-          const response = await SpentCategoryService.getAllSpentCategories();
-          setSpentCategories(response.data);
+          const responseSpentCategory =
+            await SpentCategoryService.getAllSpentCategories();
+          const responseMonthlySpent = await MonthlySpentService.fetchOneById(
+            iditem
+          );
+          setSpentCategories(responseSpentCategory.data);
+          setMonthlySpent(responseMonthlySpent.data);
         } catch (error) {
           console.log(error);
         }
@@ -95,6 +83,22 @@ const NewMonthlySpent = () => {
     }
   }, []);
 
+  const modifyMonthlySpent = (e) => {
+    MonthlySpentService.updateMonthlySpent(monthlySpent)
+      .then((response) => {
+        if (response.data.error !== undefined) {
+          setErrorMessage(response.data.error);
+          document.getElementById("API-error-box").style.display = "flex";
+        } else {
+          console.log("Monthly spent modified successfully");
+          navigate("/success");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="app-main-container">
       {loading && <Loading />}
@@ -102,7 +106,7 @@ const NewMonthlySpent = () => {
         <div className="main-form-container">
           <MainTitleDisplay
             mode={"form"}
-            titleToDisplay={"Ajouter Dépense Mensuelle"}
+            titleToDisplay={"Modifier Dépense Mensuelle"}
           />
           <ErrorMessage message={errorMessage} />
           <div className="main-input-field" id="form">
@@ -137,6 +141,7 @@ const NewMonthlySpent = () => {
                 name="idSpentCategorySelected"
                 onChange={(e) => handleChange(e)}
                 className="select-form"
+                defaultValue={monthlySpent.idSpentCategorySelected}
               >
                 <option value="">Choisissez une catégorie...</option>
                 {spentCategories.map((spentCategory) => (
@@ -169,7 +174,7 @@ const NewMonthlySpent = () => {
       {confirmPopup && (
         <Confirm
           parentSetConfirmPopup={setConfirmPopup}
-          parentMethodToConfirm={sendNewMonthlySpentToApi}
+          parentMethodToConfirm={modifyMonthlySpent}
           parentConfirmMessage={confirmMessage}
         />
       )}
@@ -177,4 +182,4 @@ const NewMonthlySpent = () => {
   );
 };
 
-export default NewMonthlySpent;
+export default ModifyMonthlySpent;

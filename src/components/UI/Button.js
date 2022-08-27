@@ -6,12 +6,18 @@ const Button = ({ item, iditem, mode, method }) => {
 
   return (
     <div>
-      {iditem !== null && (
+      {iditem !== null && method === null && (
         <button onClick={() => navigate(`/${item}/${mode}/${iditem}`)}>
           {mode === "modify" && "Modifier"}
           {mode === "delete" && "Supprimer"}
           {mode === "transform" && "Ajouter aux dépenses"}
         </button>
+      )}
+
+      {iditem !== null && method !== null && (
+        <button onClick={(e, iditem) => method(e, iditem)}>
+        {mode === "confirm" && "Confirmer"}
+      </button>
       )}
 
       {mode === "create" && <button onClick={(e) => method(e)}>Ajouter</button>}
