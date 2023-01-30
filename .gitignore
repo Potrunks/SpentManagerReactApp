@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Settings Service
-.src/services/SettingService.js
+/src/services/SettingService.js
